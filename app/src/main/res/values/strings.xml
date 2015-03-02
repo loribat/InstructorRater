@@ -7,5 +7,6 @@
 
     // Strings used in Instructor List
     <string name="details">Show Detail</string>
+    <string name="rate">Rate Instructor</string>
 
 </resources>

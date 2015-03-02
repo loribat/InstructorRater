@@ -13,15 +13,28 @@ public class Instructor {
     // TAG for logging messages to LogCat
     public static final String LOGTAG = "Instructor";
 
-    // Add strings for the JSON keys
+    // Add strings for the JSON instructor list keys
     private static final String JSON_ID="id";
     private static final String JSON_FIRSTNAME="firstName";
     private static final String JSON_LASTNAME="lastName";
+
+    // Add strings for the JSON instructor detail keys
+    private static final String JSON_OFFICE="office";
+    private static final String JSON_PHONE="phone";
+    private static final String JSON_EMAIL="email";
+    private static final String JSON_RATING="rating";
+    private static final String JSON_RATING_AVERAGE="average";
+    private static final String JSON_RATING_TOTAL="totalRatings";
 
     // Member Variables
     String mFirstName;
     String mLastName;
     int mId;
+    String mOffice;
+    String mPhone;
+    String mEmail;
+    Double mAverageRating;
+    int mTotalRatings;
 
     // constructor that takes a JSONObject and turns it into an Instructor
     public Instructor(JSONObject jsonInstructor) throws JSONException {
@@ -32,6 +45,21 @@ public class Instructor {
                 ", mLastName: " + mLastName); */
     } // end constructor from a JSONObject
 
+
+
+    public void addDetail(JSONObject jsonInstructorDetail) throws JSONException {
+        mOffice = jsonInstructorDetail.getString(JSON_OFFICE);
+        mPhone = jsonInstructorDetail.getString(JSON_PHONE);
+        mEmail = jsonInstructorDetail.getString(JSON_EMAIL);
+        JSONObject ratingInfo = jsonInstructorDetail.getJSONObject(JSON_RATING);
+        mAverageRating = ratingInfo.getDouble(JSON_RATING_AVERAGE);
+        mTotalRatings = ratingInfo.getInt(JSON_RATING_TOTAL);
+
+        Log.d(LOGTAG, "Inside addDetail, mOffice: " + mOffice + ", mPhone: " + mPhone +
+                ", mEmail: " + mEmail + ", mAverageRating: " + mAverageRating + ", mTotalRatings: "
+                + mTotalRatings);
+    } // end method addDetail
+
     // Getters
     public String getFirstName() {
         return mFirstName;
@@ -41,6 +69,21 @@ public class Instructor {
     }
     public int getId() {
         return mId;
+    }
+    public String getOffice() {
+        return mOffice;
+    }
+    public String getPhone() {
+        return mPhone;
+    }
+    public String getEmail() {
+        return mEmail;
+    }
+    public Double getAverageRating() {
+        return mAverageRating;
+    }
+    public int getTotalRatings() {
+        return mTotalRatings;
     }
 
     // Setters

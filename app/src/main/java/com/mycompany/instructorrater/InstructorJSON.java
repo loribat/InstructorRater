@@ -20,7 +20,7 @@ public class InstructorJSON {
     }
 
     // Method to create an ArrayList of Instructor Objects
-    // given the String of input from the URL
+    // given the String of input from the rateme/list URL
     public ArrayList<Instructor> loadInstructors(String instructorStringFromURL) throws IOException {
         ArrayList<Instructor> instructors = new ArrayList<Instructor>();
         Log.d(LOGTAG, "Inside loadInstructors, before try/catch, string from URL is: " +
