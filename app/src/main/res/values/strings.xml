@@ -5,4 +5,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    // Strings used in Instructor List
+    <string name="details">Show Detail</string>
+
 </resources>
